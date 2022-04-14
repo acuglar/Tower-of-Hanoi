@@ -1,3 +1,48 @@
 body {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   background-color: #fff;
+}
+
+.tower-of-hanoi {
+  display: flex;
+  height: 50vh;
+  background-color: rgb(255, 198, 198);
+}
+
+.hanoi-container {
+  display: flex;
+  width: 76vw;
+  justify-content: space-around;
+}
+
+form {
+  width: 24vw;
+  height: 100%;
+  border: 1px solid black
+}
+
+.hanoi-columns {
+  background-color: rgb(255, 255, 172);
+  display: flex;
+  flex-direction: column;
+  justify-content: end;
+  align-items: center;
+  width: 30%;
+  height: 100%;
+} 
+
+.base {
+  width: 94%;
+  height: 8px;
+  background-color: black;
+  border-radius: 50% 50% 0 0;
+}
+.column {
+  height: 94%;
+  width: 8px;
+  background-color: black;
+  border-radius: 4px 4px 0 0;
 }
