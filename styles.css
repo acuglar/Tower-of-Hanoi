@@ -65,7 +65,13 @@ iframe {
 	width: 98%;
 	margin: 1%;
 	border: 2px solid black;
-	border-radius: 2%;
+	border-radius: 8px;
+}
+
+i {
+	position: absolute;
+	right: 2.5%;
+	bottom: 16.5%;
 }
 
 footer {
