@@ -18,12 +18,6 @@ body {
   justify-content: space-around;
 }
 
-form {
-  width: 24vw;
-  height: 100%;
-  border: 1px solid black
-}
-
 .hanoi-columns {
   background-color: rgb(255, 255, 172);
   display: flex;
