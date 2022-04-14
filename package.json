@@ -1,0 +1,24 @@
+{
+  "name": "vanilla-games",
+  "version": "1.0.0",
+  "description": "js vanilla games",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/acuglar/Vanilla-Games.git"
+  },
+  "keywords": [
+    "npm",
+    "vanilla",
+    "games"
+  ],
+  "author": "Alexandre Uglar",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/acuglar/Vanilla-Games/issues"
+  },
+  "homepage": "https://github.com/acuglar/Vanilla-Games#readme"
+}
