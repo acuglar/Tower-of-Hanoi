@@ -3,7 +3,7 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: #fff;
+  background-color: #f9f9f9;
 }
 
 .fa-question {
@@ -15,30 +15,28 @@ body {
 .tower-of-hanoi {
   display: flex;
   height: 60vh;
-  background-color: rgb(255, 198, 198);
 }
 
 .hanoi-container {
   display: flex;
   flex-direction: column;
   width: 76vw;
-  background-color: #ccc;
 }
 
 .hanoi-container-columns {
   display: flex;
   justify-content: space-around;
   height: 100%;
-  background-color: blue;
+  z-index: -1;
 }
 
 .hanoi-columns {
-  background-color: rgb(255, 255, 172);
   display: flex;
   flex-direction: column;
   justify-content: end;
   align-items: center;
   width: 30%;
+  z-index: -1;
 } 
 
 .base {
@@ -50,9 +48,11 @@ body {
   linear-gradient(
     #b27315, #966f33, #966f33 29%, #faddb0 14.5%, #faddb0 27.5%, #966f33 42%, #faddb0 43.5%, #d7b889 56.5%, #966f33 58%, #966f33 71%);
   }
+
 .column {
   height: 94%;
   width: 16px;
   background: linear-gradient(to right, #d7b889, #b27315, #966f33);
   border-radius: 4px 4px 0 0;
+  z-index: -1;
 }
