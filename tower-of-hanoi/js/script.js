@@ -22,6 +22,7 @@ const mountGame = (selectedDisks) => {
     disk.style.background = `linear-gradient(to right, ${colors[i][0]}, ${colors[i][1]}, ${colors[i][2]})`
     disk.style.width = `${i / selectedDisks * 100}%`
     disk.className = 'disk'
+    disk.draggable = true
     columnStart.append(disk)
   }
 }
@@ -49,3 +50,9 @@ form.addEventListener('submit', e => {
   mountGame(selectedDisks)
 })
 
+document.addEventListener('dragstart', (e) => {
+  const dragged = e.target
+  setTimeout(() => {
+    dragged.className = 'invisible'
+  }, 0)
+})
