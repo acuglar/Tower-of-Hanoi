@@ -17,13 +17,10 @@ const colors = {
 const mountGame = (selectedDisks) => {
   columnStart.replaceChildren(columnStart.firstElementChild)
 
-  log(typeof selectedDisks)
   for (let i = 1; i <= selectedDisks; i++) {
     const disk = document.createElement('div')
     disk.style.background = `linear-gradient(to right, ${colors[i][0]}, ${colors[i][1]}, ${colors[i][2]})`
     disk.style.width = `${i / selectedDisks * 100}%`
-    disk.style.minWidth = '20px'
-    disk.style.height = '10%';
     disk.className = 'disk'
     columnStart.append(disk)
   }
