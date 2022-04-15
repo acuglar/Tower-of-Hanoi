@@ -43,14 +43,13 @@ body {
 
 .base {
   width: 96%;
-  height: 16px;
+  height: 24px;
   margin: 0 auto;
   border-radius: 8px 8px 0 0;
-  background: linear-gradient(to right, rgba(255, 255, 255, 0.3), transparent),
+  background: linear-gradient(to right, #ffffff33, transparent),
   linear-gradient(
-    #b27315, #966f33 13%,
-    #faddb0 14.5%, #faddb0 27.5%, #966f33 29%, #966f33 42%, #faddb0 43.5%, #d7b889 56.5%, #966f33 58%, #966f33 71%, #d7b889 72.5%, #d7b889 85.5%, #966f33 87%, #b27315);
-}
+    #b27315, #966f33, #966f33 29%, #faddb0 14.5%, #faddb0 27.5%, #966f33 42%, #faddb0 43.5%, #d7b889 56.5%, #966f33 58%, #966f33 71%);
+  }
 .column {
   height: 94%;
   width: 16px;
