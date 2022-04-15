@@ -1,5 +1,6 @@
 const form = document.querySelector('form')
 const columnStart = document.querySelector('[data-columns="start"]')
+const columns = document.querySelectorAll('.hanoi-columns')
 
 const log = (...values) => console.log(...values)
 
@@ -55,4 +56,27 @@ document.addEventListener('dragstart', (e) => {
   setTimeout(() => {
     dragged.className = 'invisible'
   }, 0)
+})
+
+const dragOverEvent = (e) => {
+  // comportamento padrão impede drop
+  e.preventDefault()
+  log('Dragging over')
+
+  e.target.firstElementChild.style.filter = 'contrast(1.4)'
+}
+
+const dragLeaveEvent = (e) => {
+  log('Dragging leave')
+  e.target.firstElementChild.style.filter = ''
+}
+
+const dropEvent = (e) => {
+  log('Dropping')
+}
+
+columns.forEach(column => {
+  column.addEventListener('dragover', dragOverEvent)
+  column.addEventListener('drop', dropEvent)
+  column.addEventListener('dragleave', dragLeaveEvent)
 })
