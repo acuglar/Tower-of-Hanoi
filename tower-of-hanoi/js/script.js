@@ -12,6 +12,7 @@ form.addEventListener('submit', e => {
     disk.style.background = `linear-gradient(to right, ${colors[i][0]}, ${colors[i][1]}, ${colors[i][2]})`
     disk.style.width = `${i / selectedDisks * 100}%`
     disk.style.height = '10%';
+    disk.className = 'disk'
     column.append(disk)
   }
 })
