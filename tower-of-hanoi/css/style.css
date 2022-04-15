@@ -27,20 +27,19 @@ body {
   display: flex;
   justify-content: space-around;
   height: 100%;
-  z-index: -1;
 }
 
 .hanoi-columns {
   display: flex;
+  position: relative;
   flex-direction: column;
   justify-content: end;
   align-items: center;
   width: 30%;
-  z-index: -1;
 } 
 
 .base {
-  width: 96%;
+  width: 98%;
   height: 24px;
   margin: 0 auto;
   border-radius: 8px 8px 0 0;
@@ -50,6 +49,7 @@ body {
   }
 
 .column {
+  position: absolute;
   height: 94%;
   width: 16px;
   background: linear-gradient(to right, #d7b889, #b27315, #966f33);
