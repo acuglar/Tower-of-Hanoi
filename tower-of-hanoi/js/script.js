@@ -1,22 +1,7 @@
 const form = document.querySelector('form')
-const column = document.querySelector('[data-columns="start"]')
+const columnStart = document.querySelector('[data-columns="start"]')
 
-let selectedDisks = 3
-
-form.addEventListener('submit', e => {
-  e.preventDefault()
-  selectedDisks = e.target.disksNumber.value
-
-  for (let i = 1; i <= selectedDisks; i++) {
-    const disk = document.createElement('div')
-    disk.style.background = `linear-gradient(to right, ${colors[i][0]}, ${colors[i][1]}, ${colors[i][2]})`
-    disk.style.width = `${i / selectedDisks * 100}%`
-    disk.style.height = '10%';
-    disk.className = 'disk'
-    column.append(disk)
-  }
-})
-
+const log = (...values) => console.log(...values)
 
 const colors = {
   1: ['#c595f1', '#8A2BE2', '#6820aa'],
@@ -28,3 +13,34 @@ const colors = {
   7: ['#c0f5ff', '#80EAFF', '#70cddf'],
   8: ['#e4fff2', '#C9FFE5', '#97bfac'],
 }
+
+const mountGame = (selectedDisks) => {
+  columnStart.replaceChildren(columnStart.firstElementChild)
+
+  for (let i = 1; i <= selectedDisks; i++) {
+    const disk = document.createElement('div')
+    disk.style.background = `linear-gradient(to right, ${colors[i][0]}, ${colors[i][1]}, ${colors[i][2]})`
+    disk.style.width = `${i / selectedDisks * 100}%`
+    disk.style.minWidth = '20px'
+    disk.style.height = '10%';
+    disk.className = 'disk'
+    columnStart.append(disk)
+  }
+}
+
+const initGame = ((selectedDisks) => {
+  if (!(columnStart.childElementCount - 1)) {
+    selectedDisks = 3
+
+    return mountGame(selectedDisks)
+  }
+})()
+
+
+form.addEventListener('submit', e => {
+  e.preventDefault()
+
+  const selectedDisks = e.target.disksNumber.value
+  mountGame(selectedDisks)
+})
+
