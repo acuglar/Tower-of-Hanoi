@@ -17,6 +17,7 @@ const colors = {
 const mountGame = (selectedDisks) => {
   columnStart.replaceChildren(columnStart.firstElementChild)
 
+  log(typeof selectedDisks)
   for (let i = 1; i <= selectedDisks; i++) {
     const disk = document.createElement('div')
     disk.style.background = `linear-gradient(to right, ${colors[i][0]}, ${colors[i][1]}, ${colors[i][2]})`
@@ -40,7 +41,14 @@ const initGame = ((selectedDisks) => {
 form.addEventListener('submit', e => {
   e.preventDefault()
 
+  const selectedOption = e.target.disksNumber
   const selectedDisks = e.target.disksNumber.value
+
+  if (!Number(selectedDisks)) {
+    return
+  }
+  selectedOption.firstElementChild.selected = true
+
   mountGame(selectedDisks)
 })
 
