@@ -1,8 +1,12 @@
 const form = document.querySelector('form')
 const columnStart = document.querySelector('[data-columns="start"]')
+const columnOffset = document.querySelector('[data-columns="offset"]')
+const columnEnd = document.querySelector('[data-columns="end"]')
+const columnsContainer = document.querySelector('.hanoi-container-columns')
 const columns = document.querySelectorAll('.hanoi-columns')
+const column = document.querySelector('.column')
 
-const log = (...values) => console.log(...values)
+// const console.log = (...values) => console.console.log(...values)
 
 const colors = {
   1: ['#c595f1', '#8A2BE2', '#6820aa'],
@@ -16,8 +20,6 @@ const colors = {
 }
 
 const mountGame = (selectedDisks) => {
-  columnStart.replaceChildren(columnStart.firstElementChild)
-
   for (let i = 1; i <= selectedDisks; i++) {
     const disk = document.createElement('div')
     disk.style.background = `linear-gradient(to right, ${colors[i][0]}, ${colors[i][1]}, ${colors[i][2]})`
@@ -36,7 +38,6 @@ const initGame = ((selectedDisks) => {
   }
 })()
 
-
 form.addEventListener('submit', e => {
   e.preventDefault()
 
@@ -53,9 +54,9 @@ form.addEventListener('submit', e => {
 
 let dragged
 
-document.addEventListener('dragstart', (e) => {
+columnsContainer.addEventListener('dragstart', (e) => {
   dragged = e.target
-  log(dragged)
+  console.log(dragged)
   setTimeout(() => {
     dragged.classList.add('hidden')
   }, 0)
@@ -64,23 +65,22 @@ document.addEventListener('dragstart', (e) => {
 const dragOverEvent = (e) => {
   // comportamento padrão impede drop
   e.preventDefault()
-  log('Dragging over')
+  console.log('Dragging over')
 
   e.target.firstElementChild.style.filter = 'contrast(1.4)'
 }
 
 const dragLeaveEvent = (e) => {
-  log('Dragging leave')
+  console.log('Dragging leave')
   e.target.firstElementChild.style.filter = ''
 }
 
 const dropEvent = (e) => {
-  log('Dropping')
+  console.log(dragged, 'Dropping')
   dragged.parentNode.removeChild(dragged)
-  dragged.classList.remove('hidden')
   e.target.appendChild(dragged)
   e.target.firstElementChild.style.filter = ''
-  log(e.target)
+  console.log(e.target)
 }
 
 columns.forEach(column => {
@@ -88,3 +88,8 @@ columns.forEach(column => {
   column.addEventListener('drop', dropEvent)
   column.addEventListener('dragleave', dragLeaveEvent)
 })
+
+document.addEventListener('dragend', (e) => {
+  dragged.classList.remove('hidden')
+})
+
