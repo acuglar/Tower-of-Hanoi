@@ -68,3 +68,7 @@ body {
   filter: contrast(2);
   cursor: pointer;
 }
+
+.hidden {
+  visibility: hidden;
+}

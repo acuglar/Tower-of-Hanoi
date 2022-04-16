@@ -51,10 +51,13 @@ form.addEventListener('submit', e => {
   mountGame(selectedDisks)
 })
 
+let dragged
+
 document.addEventListener('dragstart', (e) => {
-  const dragged = e.target
+  dragged = e.target
+  log(dragged)
   setTimeout(() => {
-    dragged.className = 'invisible'
+    dragged.classList.add('hidden')
   }, 0)
 })
 
@@ -73,6 +76,11 @@ const dragLeaveEvent = (e) => {
 
 const dropEvent = (e) => {
   log('Dropping')
+  dragged.parentNode.removeChild(dragged)
+  dragged.classList.remove('hidden')
+  e.target.appendChild(dragged)
+  e.target.firstElementChild.style.filter = ''
+  log(e.target)
 }
 
 columns.forEach(column => {
