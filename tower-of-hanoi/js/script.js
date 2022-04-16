@@ -38,8 +38,15 @@ const initGame = ((selectedDisks) => {
   }
 })()
 
+const resetGame = () => {
+  const disks = document.querySelectorAll('.disk')
+  disks.forEach(disk => disk.remove())
+}
+
 form.addEventListener('submit', e => {
   e.preventDefault()
+
+  resetGame()
 
   const selectedOption = e.target.disksNumber
   const selectedDisks = e.target.disksNumber.value
