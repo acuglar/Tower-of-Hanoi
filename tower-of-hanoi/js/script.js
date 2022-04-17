@@ -20,12 +20,12 @@ const colors = {
 }
 
 const mountGame = (selectedDisks) => {
-  for (let i = 1; i <= selectedDisks; i++) {
+  for (let i = selectedDisks; i >= 1; i--) {
     const disk = document.createElement('div')
     disk.style.background = `linear-gradient(to right, ${colors[i][0]}, ${colors[i][1]}, ${colors[i][2]})`
     disk.style.width = `${i / selectedDisks * 100}%`
     disk.className = 'disk'
-    disk.draggable = true
+    disk.dataset.number = i
     columnStart.append(disk)
   }
 }
@@ -33,7 +33,6 @@ const mountGame = (selectedDisks) => {
 const initGame = ((selectedDisks) => {
   if (!(columnStart.childElementCount - 1)) {
     selectedDisks = 3
-
     return mountGame(selectedDisks)
   }
 })()
@@ -57,46 +56,50 @@ form.addEventListener('submit', e => {
   selectedOption.firstElementChild.selected = true
 
   mountGame(selectedDisks)
+  checkDraggable()
 })
 
 let dragged
 
 columnsContainer.addEventListener('dragstart', (e) => {
+  const disks = document.querySelectorAll('.disk')
+
   dragged = e.target
-  console.log(dragged)
   setTimeout(() => {
     dragged.classList.add('hidden')
   }, 0)
+  checkDraggable()
+
 })
 
-const dragOverEvent = (e) => {
-  // comportamento padrão impede drop
-  e.preventDefault()
-  console.log('Dragging over')
+const dragLeaveEvent = (e) => {
+  e.target.firstElementChild.style.filter = ''
+}
 
+const dragOverEvent = (e) => {
+  e.preventDefault()
   e.target.firstElementChild.style.filter = 'contrast(1.4)'
 }
 
-const dragLeaveEvent = (e) => {
-  console.log('Dragging leave')
+const dropEvent = (e) => {
+  e.preventDefault()
+
+  // console.log(dragged.dataset.number)
+
+  // console.log(e.target.lastElementChild)
+  dragged.parentElement.removeChild(dragged)
+  e.target.appendChild(dragged)
   e.target.firstElementChild.style.filter = ''
 }
 
-const dropEvent = (e) => {
-  console.log(dragged, 'Dropping')
-  dragged.parentNode.removeChild(dragged)
-  e.target.appendChild(dragged)
-  e.target.firstElementChild.style.filter = ''
-  console.log(e.target)
+const dragEndEvent = () => {
+  // e.preventDefault()
+  dragged.classList.remove('hidden')
 }
 
 columns.forEach(column => {
   column.addEventListener('dragover', dragOverEvent)
   column.addEventListener('drop', dropEvent)
   column.addEventListener('dragleave', dragLeaveEvent)
+  column.addEventListener("dragend", dragEndEvent)
 })
-
-document.addEventListener('dragend', (e) => {
-  dragged.classList.remove('hidden')
-})
-

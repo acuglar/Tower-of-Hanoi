@@ -32,7 +32,7 @@ body {
 .hanoi-columns {
   display: flex;
   position: relative;
-  flex-direction: column;
+  flex-direction: column-reverse;
   justify-content: end;
   align-items: center;
   width: 30%;
@@ -66,6 +66,9 @@ body {
 
 .disk:hover {
   filter: contrast(2);
+}
+
+.disk[draggable=true] {
   cursor: pointer;
 }
 
