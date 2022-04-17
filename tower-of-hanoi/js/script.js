@@ -58,6 +58,13 @@ form.addEventListener('submit', e => {
 
   mountGame(selectedDisks)
   checkDraggable()
+
+  const disks = document.querySelectorAll('.disk')
+
+  disks.forEach(disk => {
+    disk.addEventListener('dragstart', dragStartEvent) /* When init drag item */
+    disk.addEventListener('dragend', dragEndEvent)
+  })
 })
 
 const disks = document.querySelectorAll('.disk')
@@ -65,7 +72,6 @@ const disks = document.querySelectorAll('.disk')
 const checkDraggable = () => {
   const disks = document.querySelectorAll('.disk')
 
-  console.log(disks);
   disks.forEach(disk => {
     if (disk.parentElement.lastElementChild === disk) {
       disk.setAttribute('draggable', true)
@@ -74,7 +80,6 @@ const checkDraggable = () => {
       disk.removeAttribute('draggable')
       disk.classList.add('undraggable')
     }
-    console.log(disk);
   })
 }
 
@@ -142,3 +147,7 @@ disksContainer.forEach(container => {
   container.addEventListener('dragleave', dragLeaveEvent) /* When leave box on drag */
   container.addEventListener('drop', dropEvent) /* When drop item on box */
 })
+
+checkWin = (e) => {
+  e.target.childElementCount
+}
