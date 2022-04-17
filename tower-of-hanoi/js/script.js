@@ -116,9 +116,13 @@ const dropEvent = (e) => {
 
   data = e.dataTransfer.getData('text')
   const diskTransfer = document.querySelector(`[data-number="${data}"]`)
-  e.target.append(diskTransfer)
 
-  checkDraggable()
+  const isValid = e.target.childElementCount === 1 || data < e.target.lastElementChild.dataset.number
+  if (isValid) {
+    e.target.append(diskTransfer)
+    checkDraggable()
+  }
+
 }
 
 const dragEndEvent = (e) => {
