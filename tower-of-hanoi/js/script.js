@@ -1,9 +1,10 @@
 const form = document.querySelector('form')
-const columnStart = document.querySelector('[data-columns="start"]')
-const columnOffset = document.querySelector('[data-columns="offset"]')
-const columnEnd = document.querySelector('[data-columns="end"]')
-const columnsContainer = document.querySelector('.hanoi-container-columns')
-const columns = document.querySelectorAll('.hanoi-columns')
+const containerStart = document.querySelector('[data-columns="start"]')
+const containerOffset = document.querySelector('[data-columns="offset"]')
+const containerEnd = document.querySelector('[data-columns="end"]')
+const hanoiContainer = document.querySelector('.hanoi-container-columns')
+const disksContainer = document.querySelectorAll('.hanoi-columns')
+
 const column = document.querySelector('.column')
 
 // const console.log = (...values) => console.console.log(...values)
@@ -26,14 +27,14 @@ const mountGame = (selectedDisks) => {
     disk.style.width = `${i / selectedDisks * 100}%`
     disk.className = 'disk'
     disk.dataset.number = i
-    columnStart.append(disk)
+    containerStart.append(disk)
   }
 }
 
 const initGame = ((selectedDisks) => {
-  if (!(columnStart.childElementCount - 1)) {
-    selectedDisks = 3
-    return mountGame(selectedDisks)
+  if (!(containerStart.childElementCount - 1)) {
+    selectedDisks = 8
+    mountGame(selectedDisks)
   }
 })()
 
@@ -59,47 +60,81 @@ form.addEventListener('submit', e => {
   checkDraggable()
 })
 
-let dragged
+const disks = document.querySelectorAll('.disk')
 
-columnsContainer.addEventListener('dragstart', (e) => {
+const checkDraggable = () => {
   const disks = document.querySelectorAll('.disk')
 
-  dragged = e.target
+  console.log(disks);
+  disks.forEach(disk => {
+    if (disk.parentElement.lastElementChild === disk) {
+      disk.setAttribute('draggable', true)
+      disk.classList.remove('undraggable')
+    } else {
+      disk.removeAttribute('draggable')
+      disk.classList.add('undraggable')
+    }
+    console.log(disk);
+  })
+}
+
+checkDraggable()
+
+const dragStartEvent = (e) => {
+  e.dataTransfer.setData('text/plain', e.target.dataset.number)
+  console.log('DragStart', e)
+
   setTimeout(() => {
-    dragged.classList.add('hidden')
+    e.target.classList.add('hidden')
   }, 0)
-  checkDraggable()
-
-})
-
-const dragLeaveEvent = (e) => {
-  e.target.firstElementChild.style.filter = ''
 }
 
 const dragOverEvent = (e) => {
   e.preventDefault()
-  e.target.firstElementChild.style.filter = 'contrast(1.4)'
+  // console.log('DragOver', e)
+  if (Array.from(e.target.classList).includes('hanoi-columns')) {
+    e.target.firstElementChild.style.filter = 'contrast(1.4)'
+  }
+}
+
+const dragLeaveEvent = (e) => {
+  e.preventDefault()
+  console.log('DragLeave', e.target.classList)
+
+  if (Array.from(e.target.classList).includes('hanoi-columns')) {
+    e.target.firstElementChild.style.filter = ''
+  }
 }
 
 const dropEvent = (e) => {
   e.preventDefault()
+  console.log('Drop', e)
 
-  // console.log(dragged.dataset.number)
+  if (Array.from(e.target.classList).includes('hanoi-columns')) {
+    e.target.firstElementChild.style.filter = ''
+  }
 
-  // console.log(e.target.lastElementChild)
-  dragged.parentElement.removeChild(dragged)
-  e.target.appendChild(dragged)
-  e.target.firstElementChild.style.filter = ''
+  data = e.dataTransfer.getData('text')
+  const diskTransfer = document.querySelector(`[data-number="${data}"]`)
+  e.target.append(diskTransfer)
+
+  checkDraggable()
 }
 
-const dragEndEvent = () => {
-  // e.preventDefault()
-  dragged.classList.remove('hidden')
+const dragEndEvent = (e) => {
+  console.log('End')
+  e.target.classList.remove('hidden')
 }
 
-columns.forEach(column => {
-  column.addEventListener('dragover', dragOverEvent)
-  column.addEventListener('drop', dropEvent)
-  column.addEventListener('dragleave', dragLeaveEvent)
-  column.addEventListener("dragend", dragEndEvent)
+// Drag Events
+disks.forEach(disk => {
+  disk.addEventListener('dragstart', dragStartEvent) /* When init drag item */
+  disk.addEventListener('dragend', dragEndEvent)
+})
+
+// Drop Events
+disksContainer.forEach(container => {
+  container.addEventListener('dragover', dragOverEvent) /* When over box */
+  container.addEventListener('dragleave', dragLeaveEvent) /* When leave box on drag */
+  container.addEventListener('drop', dropEvent) /* When drop item on box */
 })
