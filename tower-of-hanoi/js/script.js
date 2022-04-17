@@ -48,13 +48,7 @@ form.addEventListener('submit', e => {
 
   resetGame()
 
-  const selectedOption = e.target.disksNumber
-  const selectedDisks = e.target.disksNumber.value
-
-  if (!Number(selectedDisks)) {
-    return
-  }
-  selectedOption.firstElementChild.selected = true
+  const selectedDisks = e.target.input_number.value
 
   mountGame(selectedDisks)
   checkDraggable()

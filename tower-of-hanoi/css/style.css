@@ -1,9 +1,12 @@
+@import url('https://fonts.googleapis.com/css2?family=Cedarville+Cursive&family=Langar&family=Roboto:wght@100&display=swap');
+
 body {
   height: 100vh;
   display: flex;
   justify-content: center;
   align-items: center;
   background-color: #f9f9f9;
+  font-family: 'Langar', cursive;
 }
 
 .fa-question {

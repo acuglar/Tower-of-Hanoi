@@ -14,9 +14,22 @@
 		<title>Tower of hanoi</title>
 	</head>
 	<body>
-		<i class="fa-solid fa-question">
-			<span class="tooltiptext">Tooltip text</span>
-		</i>
+		<div>
+			<i class="fa-solid fa-question">
+				<span class="tooltiptext">Tooltip text</span>
+			</i>
+			<div class="info">
+				<p>
+					O objetivo do puzzle é mover todos os discos para a última haste
+					obedecendo as seguintes regras:
+				</p>
+				<ol type="i">
+					<li>Somente um disco pode ser movido por vez.</li>
+					<li>Permitido somente mover o disco mais ao topo.</li>
+					<li>Um disco não pode ser colocado sobre outro menor.</li>
+				</ol>
+			</div>
+		</div>
 
 		<div class="tower-of-hanoi">
 			<div class="hanoi-container undraggable" data-container="hanoi-container">
@@ -35,28 +48,9 @@
 			</div>
 
 			<div class="form-info">
-				<div class="info">
-					<p>
-						O objetivo do puzzle é mover todos os discos para a última haste
-						obedecendo as seguintes regras:
-					</p>
-					<ol type="1">
-						<li>Somente um disco pode ser movido por vez.</li>
-						<li>Permitido somente mover o disco mais ao topo.</li>
-						<li>Um disco não pode ser colocado sobre outro menor.</li>
-					</ol>
-				</div>
-				<form>
-					<select id="disksNumber" name="selectDisks">
-						<option selected>Choose a option:</option>
-						<option>3</option>
-						<option>4</option>
-						<option>5</option>
-						<option>6</option>
-						<option>7</option>
-						<option>8</option>
-					</select>
-					<input type="submit" value="Let's Play!" />
+				<form class="form">
+					<input id="input_number" type="number" min="3" max="8" value="8" />
+					<input class="btn-play" type="submit" value="Let's Play!" />
 				</form>
 			</div>
 		</div>

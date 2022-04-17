@@ -1,7 +1,21 @@
 .form-info {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  flex-wrap: wrap;
+  align-items: end;
   width: 24vw;
   height: 100%;
-  border: 1px solid black
+}
+
+.form {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.info {
+  display: none;
 }
 
 ol {
@@ -11,4 +25,41 @@ ol {
 select {
   border: none;
   background-color: transparent;
+}
+
+.btn-play {
+  background: none;
+  border: 2px solid;
+  font: inherit;
+  line-height: 1;
+  margin: .5rem;
+  padding: 1em 1em;
+  color: #ef6eae
+}
+
+select {
+  font-family: 'Langar', cursive;
+}
+
+input[type=number] {
+  font-family: 'Langar', cursive;
+  font-size: large;
+  font-weight: 700;
+  padding: 11px;
+  border: none;
+  background-color: transparent;
+  color: #00000060;
+}
+
+input[type=number]:focus-visible {
+  border: 2px solid red;
+}
+
+input[type=number]::-webkit-inner-spin-button {
+  background: #fa9a9a;
+  /* margin-bottom: 10px; */
+}
+input[type=number]::-webkit-outer-spin-button {
+  background-color: #fa9a9a;
+  /* margin-bottom: 10px; */
 }
