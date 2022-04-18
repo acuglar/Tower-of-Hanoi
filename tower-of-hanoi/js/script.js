@@ -16,10 +16,10 @@ const colors = {
   2: ['#ef9280', '#DF2500', '#a71c00'],
   3: ['#ffae60', '#FF7E00', '#bf5f00'],
   4: ['#ffd760', '#FFBF00', '#bf8f00'],
-  5: ['#ffdf80', '#E6E600', '#adad00'],
-  6: ['#c0ffd5', '#70df95', '#509f6a'],
-  7: ['#c0f5ff', '#80EAFF', '#70cddf'],
-  8: ['#e4fff2', '#C9FFE5', '#97bfac'],
+  5: ['#ffff70', '#ffff00', '#b3b300'],
+  6: ['#d4ff70', '#b3ff00', '#71a100'],
+  7: ['#c0ffd5', '#70df95', '#509f6a'],
+  8: ['#c0f5ff', '#80EAFF', '#58a1af'],
 }
 
 const mountGame = (selectedDisks) => {
@@ -33,10 +33,17 @@ const mountGame = (selectedDisks) => {
   }
 }
 
+const setMinValue = (selectedDisks) => {
+  const minMove = document.querySelector('[data-counter-min="form__counter-min"]')
+
+  minMove.innerText = `${(2 ** selectedDisks - 1)}`
+}
+
 const initGame = ((selectedDisks) => {
   if (!(containerStart.childElementCount - 1)) {
     selectedDisks = 8
     mountGame(selectedDisks)
+    setMinValue(selectedDisks)
   }
 })()
 
@@ -46,6 +53,10 @@ const resetGame = () => {
 
   const winMessage = document.querySelector('.winner')
   winMessage.classList.add('hidden')
+
+  const counter = document.querySelector('[data-counter-move="form__counter-move"]')
+
+  counter.innerText = 0
 }
 
 const add = document.querySelector('.form__counter-btn.add')
@@ -76,6 +87,7 @@ form.addEventListener('click', e => {
 
     const selectedDisks = e.target.parentElement.form__number.value
 
+    setMinValue(selectedDisks)
     mountGame(selectedDisks)
     checkDraggable()
 
@@ -156,7 +168,10 @@ const dropEvent = (e) => {
     e.target.append(diskTransfer)
     checkDraggable()
     checkWinner()
-    counter++
+
+    const counter = document.querySelector('[data-counter-move="form__counter-move"]')
+
+    counter.innerText++
   }
 }
 
