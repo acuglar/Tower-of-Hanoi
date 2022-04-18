@@ -43,22 +43,44 @@ const resetGame = () => {
   disks.forEach(disk => disk.remove())
 }
 
-form.addEventListener('submit', e => {
+const add = document.querySelector('.form__counter-btn.add')
+const sub = document.querySelector('.form__counter-btn.sub')
+
+add.addEventListener('click', e => {
+  const selectedDisks = e.target.parentElement.parentElement.form__number.value
+
+  if (selectedDisks < 8) {
+    e.target.parentElement.parentElement.form__number.value++
+  }
+  console.log(selectedDisks);
+})
+
+sub.addEventListener('click', e => {
+  const selectedDisks = e.target.parentElement.parentElement.form__number.value
+
+  if (selectedDisks > 3) {
+    e.target.parentElement.parentElement.form__number.value--
+  }
+})
+
+form.addEventListener('click', e => {
   e.preventDefault()
 
-  resetGame()
+  if (e.target.value === "Let's Play!") {
+    resetGame()
 
-  const selectedDisks = e.target.input_number.value
+    const selectedDisks = e.target.parentElement.form__number.value
 
-  mountGame(selectedDisks)
-  checkDraggable()
+    mountGame(selectedDisks)
+    checkDraggable()
 
-  const disks = document.querySelectorAll('.disk')
+    const disks = document.querySelectorAll('.disk')
 
-  disks.forEach(disk => {
-    disk.addEventListener('dragstart', dragStartEvent) /* When init drag item */
-    disk.addEventListener('dragend', dragEndEvent)
-  })
+    disks.forEach(disk => {
+      disk.addEventListener('dragstart', dragStartEvent) /* When init drag item */
+      disk.addEventListener('dragend', dragEndEvent)
+    })
+  }
 })
 
 const disks = document.querySelectorAll('.disk')

@@ -1,16 +1,15 @@
-.form-info {
+.form {
   display: flex;
   flex-direction: row;
   justify-content: center;
   flex-wrap: wrap;
   align-items: end;
   width: 24vw;
-  height: 100%;
 }
 
-.form {
+.form-info {
+  height: 3rem;
   display: flex;
-  flex-wrap: wrap;
   justify-content: center;
 }
 
@@ -18,48 +17,57 @@
   display: none;
 }
 
-ol {
-  padding: 20px;
-}
-
-select {
-  border: none;
-  background-color: transparent;
-}
-
-.btn-play {
+.form__btn-play {
   background: none;
   border: 2px solid;
   font: inherit;
   line-height: 1;
-  margin: .5rem;
   padding: 1em 1em;
   color: #ef6eae
 }
 
-select {
-  font-family: 'Langar', cursive;
+.form__btn-play:hover {
+  cursor: pointer;
+}
+
+.form__counter {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100%;
+  border: 2px solid ef6eae;
+  background-color: #ef6eae;
+  padding: 4px 0;
+}
+
+.form__counter-btn {
+  background-color: #ef6eae;
+  border: none;
+  color: #fff;
 }
 
 input[type=number] {
   font-family: 'Langar', cursive;
   font-size: large;
   font-weight: 700;
-  padding: 11px;
+  text-align: center;
+  padding: 6px;
   border: none;
   background-color: transparent;
   color: #00000060;
+  border: 2px solid #ef6eae;
 }
 
-input[type=number]:focus-visible {
-  border: 2px solid red;
-}
-
-input[type=number]::-webkit-inner-spin-button {
-  background: #fa9a9a;
-  /* margin-bottom: 10px; */
-}
+input[type=number]::-webkit-inner-spin-button,
 input[type=number]::-webkit-outer-spin-button {
-  background-color: #fa9a9a;
-  /* margin-bottom: 10px; */
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+input[type=number] {
+  -moz-appearance: textfield;
+}
+
+input[type=number]:focus {
+  outline: 0;
 }

@@ -47,10 +47,19 @@
 				<div class="base undraggable"></div>
 			</div>
 
-			<div class="form-info">
-				<form class="form">
-					<input id="input_number" type="number" min="3" max="8" value="8" />
-					<input class="btn-play" type="submit" value="Let's Play!" />
+			<div class="form">
+				<form class="form-info">
+					<input id="form__number" type="number" min="3" max="8" value="8" />
+					<div class="form__counter">
+						<button class="form__counter-btn add">+</button>
+						<button class="form__counter-btn sub">-</button>
+					</div>
+					<input
+						class="form__btn-play"
+						name="play"
+						type="submit"
+						value="Let's Play!"
+					/>
 				</form>
 			</div>
 		</div>
