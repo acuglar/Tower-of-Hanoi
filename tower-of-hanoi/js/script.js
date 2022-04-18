@@ -1,4 +1,4 @@
-const form = document.querySelector('form')
+const form = document.querySelector('.form-info')
 const containerStart = document.querySelector('[data-columns="start"]')
 const containerOffset = document.querySelector('[data-columns="offset"]')
 const containerEnd = document.querySelector('[data-columns="end"]')
@@ -6,6 +6,8 @@ const hanoiContainer = document.querySelector('.hanoi-container-columns')
 const disksContainer = document.querySelectorAll('.hanoi-columns')
 
 const column = document.querySelector('.column')
+
+let counter = 0
 
 // const console.log = (...values) => console.console.log(...values)
 
@@ -41,6 +43,9 @@ const initGame = ((selectedDisks) => {
 const resetGame = () => {
   const disks = document.querySelectorAll('.disk')
   disks.forEach(disk => disk.remove())
+
+  const winMessage = document.querySelector('.winner')
+  winMessage.classList.add('hidden')
 }
 
 const add = document.querySelector('.form__counter-btn.add')
@@ -101,6 +106,14 @@ const checkDraggable = () => {
 
 checkDraggable()
 
+const checkWinner = () => {
+  const selectedDisks = document.querySelector('#form__number').value
+  if (containerEnd.childElementCount - 1 == selectedDisks) {
+    const winMessage = document.querySelector('.winner')
+    winMessage.classList.remove('hidden')
+  }
+}
+
 const dragStartEvent = (e) => {
   e.dataTransfer.setData('text/plain', e.target.dataset.number)
   console.log('DragStart', e)
@@ -142,8 +155,9 @@ const dropEvent = (e) => {
   if (isValid) {
     e.target.append(diskTransfer)
     checkDraggable()
+    checkWinner()
+    counter++
   }
-
 }
 
 const dragEndEvent = (e) => {
@@ -163,7 +177,3 @@ disksContainer.forEach(container => {
   container.addEventListener('dragleave', dragLeaveEvent) /* When leave box on drag */
   container.addEventListener('drop', dropEvent) /* When drop item on box */
 })
-
-checkWin = (e) => {
-  e.target.childElementCount
-}
