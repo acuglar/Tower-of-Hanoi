@@ -1,8 +1,8 @@
 .form {
   display: flex;
   flex-direction: column-reverse;
-  justify-content: space-between;
-  flex-wrap: wrap;
+  justify-content: space-around;
+  /* flex-wrap: wrap; */
   align-items: center;
   width: 24vw;
 }
@@ -10,7 +10,7 @@
 .form-info {
   height: 3rem;
   display: flex;
-  /* justify-content: center; */
+  margin-top: 10%;
 }
 
 .info {
@@ -75,12 +75,13 @@ input[type=number]:focus {
 .winner {
   color:goldenrod;
   font-size: xx-large;
-  padding: 10%;
   line-height: 1.5;
   text-align: center;
+  /* margin-top: 10%; */
 }
 
 .text_gameplay {
-  padding: 10%;
   line-height: 1.5;
+  margin-bottom: 10%;
+  color: #00000090
 }
