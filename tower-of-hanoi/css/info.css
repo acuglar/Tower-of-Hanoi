@@ -13,10 +13,6 @@
   margin-top: 10%;
 }
 
-.info {
-  display: none;
-}
-
 .form__btn-play {
   background: none;
   border: 2px solid;
@@ -84,4 +80,27 @@ input[type=number]:focus {
   line-height: 1.5;
   margin-bottom: 10%;
   color: #00000090
+}
+
+.popup__text {
+  position: absolute;
+  top: 4%;
+  right: 3.5%;
+  width: 30vw;
+  border: 1px solid #00000020;
+  border-radius: 4px;
+  padding: 6px;
+  z-index: 2;
+  background-color: #fefefe;
+}
+
+.popup__text ol {
+  padding: 12px 0 0 24px;
+}
+
+.fa-question {
+  position: absolute;
+  top: 2.5%;
+  right: 2%;
+  cursor: pointer;
 }

@@ -9,12 +9,6 @@ body {
   font-family: 'Langar', cursive;
 }
 
-.fa-question {
-  position: absolute;
-  top: 2.5%;
-  right: 2%;
-}
-
 .tower-of-hanoi {
   display: flex;
   height: 60vh;

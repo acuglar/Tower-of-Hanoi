@@ -192,3 +192,15 @@ disksContainer.forEach(container => {
   container.addEventListener('dragleave', dragLeaveEvent) /* When leave box on drag */
   container.addEventListener('drop', dropEvent) /* When drop item on box */
 })
+
+const infoIcon = document.querySelector('.fa-question')
+const infoPopup = document.querySelector('.popup__text')
+
+infoIcon.addEventListener('click', e => {
+  infoPopup.classList.toggle('hidden')
+
+  infoPopup.addEventListener('click', e => {
+    infoPopup.classList.add('hidden')
+  })
+})
+
