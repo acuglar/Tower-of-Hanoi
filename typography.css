@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Cedarville+Cursive&family=Langar&family=Open+Sans:wght@300&family=Roboto:wght@100&display=swap');
+
 html {
 	font-size: 1px;
 }
@@ -6,7 +8,7 @@ body {
 	font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
 		'Ubuntu', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
 	font-size: 16rem;
-	font-weight: 400;
+	font-weight: 700;
 	line-height: 1.3;
 	color: #222;
 }
