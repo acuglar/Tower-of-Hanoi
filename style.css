@@ -21,10 +21,9 @@ ul {
 
 li {
 	list-style-type: disclosure-closed;
-}
-
-.hidden {
-	display: none;
+	cursor: pointer;
+	margin: 20rem 0;
+	color: #fff;
 }
 
 /* body */
@@ -101,8 +100,6 @@ footer > div {
 	flex-direction: column-reverse;
 	padding: 18rem;
 }
-
-@media (max-width: 1710px) {}
 
 @media (max-width: 1200px) {}
 
