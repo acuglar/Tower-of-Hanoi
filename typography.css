@@ -1,19 +1,27 @@
-@import url('https://fonts.googleapis.com/css2?family=Cedarville+Cursive&family=Langar&family=Open+Sans:wght@300&family=Roboto:wght@100&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Langar&family=Open+Sans:wght@800&family=Press+Start+2P&family=Roboto&display=swap');
+
+:root {
+	--main-font: 'Open Sans', sans-serif;
+	--hanoi-font: 'Langar', cursive;
+	--lig4-font: 'Roboto', sans-serif;
+}
 
 html {
 	font-size: 1px;
 }
 
 body {
-	font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-		'Ubuntu', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
+	font-family: var(--main-font), 'Helvetica Neue', sans-serif;
 	font-size: 16rem;
 	font-weight: 700;
 	line-height: 1.3;
 	color: #222;
 }
 
-h1 {
-	height: 50rem;
-	line-height: 2;
+[data-font="tower-of-hanoi"] {
+	font-family: var(--hanoi-font);
+}
+
+[data-font="lig-4"] {
+	font-family: var(--lig4-font);
 }

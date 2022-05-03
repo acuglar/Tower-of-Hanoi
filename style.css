@@ -13,7 +13,7 @@
 html, body, main, h1, h2, h3, h4, h5, h6, p, figure, div {
 	margin: 0;
 	padding: 0;
-	font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+	/* font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; */
 	box-sizing: border-box;
 	outline: none;
 }
@@ -24,7 +24,8 @@ a:hover {
 }
 
 ul {
-	font-size: 16rem;
+	font-size: 18rem;
+	font-weight: 200;
 }
 
 li {
@@ -54,6 +55,7 @@ header {
 	display: flex;
 	align-items: center;
 	padding-left: 46px;
+	font-size: 2.5vw;
 }
 
 nav {
@@ -68,6 +70,12 @@ main {
 	align-items: center;
 	grid-area: main;
 	background-color: var(--main-bgc);
+}
+
+[data-font] {
+	height: 12%;
+	line-height: 2.5;
+	font-size: 36rem;
 }
 
 iframe {
@@ -111,7 +119,9 @@ footer > div {
 
 @media (max-width: 1200px) {}
 
-@media (max-width: 991px) {}
+@media (max-width: 991px) {
+	
+}
 
 @media (max-width: 768px) {}
 
