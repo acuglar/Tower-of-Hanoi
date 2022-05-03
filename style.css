@@ -1,5 +1,13 @@
 /* variables */
-:root {}
+:root {
+	--header-bgc: #ffed88;
+	--nav-bgc: #ff7c7c;
+	--nav-text-color: #fff;
+	--main-bgc: #dcfff5;
+	--footer-bgc: #7fffd4;
+	--linkedin-color-icon: #0A66C2;
+	--github-color-icon: #1B1F23;
+}
 
 /* general */
 html, body, main, h1, h2, h3, h4, h5, h6, p, figure, div {
@@ -23,7 +31,6 @@ li {
 	list-style-type: disclosure-closed;
 	cursor: pointer;
 	margin: 20rem 0;
-	color: #fff;
 }
 
 /* body */
@@ -43,7 +50,7 @@ body {
 
 header {
 	grid-area: header;
-	background-color: #ffed88;
+	background-color: var(--header-bgc);
 	display: flex;
 	align-items: center;
 	padding-left: 46px;
@@ -51,7 +58,8 @@ header {
 
 nav {
 	grid-area: nav;
-	background-color: #ff7c7c;
+	background-color: var(--nav-bgc);
+	color: var(--nav-text-color);
 }
 
 main {
@@ -59,7 +67,7 @@ main {
 	flex-direction: column;
 	align-items: center;
 	grid-area: main;
-	background-color: #dcfff5;
+	background-color: var(--main-bgc);
 }
 
 iframe {
@@ -81,16 +89,16 @@ iframe {
 }
 
 .fa-linkedin {
-	color: #0A66C2;
+	color: var(--linkedin-color-icon);
 }
 
 .fa-github {
-	color: #1B1F23;
+	color: var(--github-color-icon);
 }
 
 footer {
 	grid-area: footer;
-	background-color: #7fffd4;
+	background-color: var(--footer-bgc);
 	display: flex;
 	flex-direction: row-reverse;
 }
