@@ -1,0 +1,27 @@
+body {
+  background-color: #fff;
+}
+
+.lig4-container {
+  display: flex;
+  justify-content: space-evenly;
+  padding: 10px;
+  background-color: #8C8C8C;
+  border-radius: 10px;
+  height: 76vh;
+  width: 88vh;
+}
+
+.columns {
+  background-color: aquamarine;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.cells {
+  background-color: chocolate;
+  width: 10vh;
+  height: 10vh;
+  border-radius: 5vh;
+}
