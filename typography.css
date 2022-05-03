@@ -1,9 +1,9 @@
-@import url('https://fonts.googleapis.com/css2?family=Langar&family=Open+Sans:wght@800&family=Press+Start+2P&family=Roboto&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Audiowide&family=Langar&family=Open+Sans:wght@800&family=Press+Start+2P&display=swap');
 
 :root {
 	--main-font: 'Open Sans', sans-serif;
 	--hanoi-font: 'Langar', cursive;
-	--lig4-font: 'Roboto', sans-serif;
+	--lig4-font: 'Audiowide', cursive;
 }
 
 html {
@@ -24,4 +24,8 @@ body {
 
 [data-font="lig-4"] {
 	font-family: var(--lig4-font);
+	background-clip: text;
+	-webkit-background-clip: text;
+	color: transparent;
+	background-image: linear-gradient(90deg, dodgerblue, purple, red);
 }
